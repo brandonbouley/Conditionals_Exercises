@@ -9,6 +9,11 @@ public class IDK {
             return ((40*rate)+(overrate*overtime));
     }
 
+    public boolean isLeapYear(int year){
+        //if (year/4==)
+    }
+
+
 
 
     /* double wages = totalWages(45, 12.5);
