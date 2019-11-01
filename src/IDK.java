@@ -54,13 +54,14 @@ public class IDK {
         int value;
         if  (size1+size2<=space)
             value=3;
-        else if (size1+size2>space && size1<space && size1>size2)
+        else if (size1+size2>space && size1<space && (size1>size2 || size2>space))
             value=1;
-        else if (size1+size2>space && size2<space && (size2>size1 || size2>space))
+        else if (size1==size2 && size1+size2>space && size1<space)
+            return 1;
+        else if (size1+size2>space && size2<space && (size2>size1 || size1>space))
             value=2;
         else if (size1>space && size2>space)
             value=0;
-
         else
             value=4;
         return value;
