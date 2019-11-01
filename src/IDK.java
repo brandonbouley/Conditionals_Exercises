@@ -1,3 +1,4 @@
+//brandon bouley 3B :)
 import java.awt.*;
 
 public class IDK {
@@ -23,10 +24,9 @@ public class IDK {
             return true;
         else if (month1>month2)
             return true;
-        else if (day1>day2)
-            return true;
         else
-            return false;
+            return day1>day2;
+
 
     }
     public static Color bestMatch(int r, int g, int b){
@@ -46,39 +46,23 @@ public class IDK {
             return Color.CYAN;
 
 
-
-
     }
-
     public static int findBestFit (int size1, int size2, int space){
         int value;
-        if  (size1+size2<=space)
+        int totalSize=size1+size2;
+
+        if  (totalSize<=space)
             value=3;
-        else if (size1+size2>space && size1<space && (size1>size2 || size2>space))
-            value=1;
-        else if (size1==size2 && size1+size2>space && size1<space)
-            return 1;
-        else if (size1+size2>space && size2<space && (size2>size1 || size1>space))
-            value=2;
         else if (size1>space && size2>space)
             value=0;
+        else if (size1<space && (size1>size2 || size2>space))
+            value=1;
+        else if (size1==size2)
+            return 1;
         else
-            value=4;
+            value=2;
         return value;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static void main(String [] args) {
         //total wages
@@ -118,19 +102,43 @@ public class IDK {
         System.out.println("Find Best fit 2 3 1 is " + findBestFit(2,3,1));
         System.out.println("Find Best fit 6 3 4 is " + findBestFit(6,3,4));
         System.out.println("Find Best fit 3 6 4 is " + findBestFit(3,6,4));
+        System.out.println("Find Best fit 2 2 2 is " + findBestFit(2,2,2));
+
+    } }
 
 
+/*
 
+Wages for 45 hours at $12.50 593.75
+Wages for 30 hours at $10.00 300.0
+2000 true
+2004 true
+2003 false
+2100 false
 
+1/2/2010 is later than 1/2/2011 false
+1/2/2011 is later than 1/2/2010 true
+1/2/2010 is later than 3/2/2010 false
+3/2/2010 is later than 1/2/2010 true
+1/3/2010 is later than 1/2/2010 true
+1/2/2010 is later than 1/3/2011 false
+1/2/2010 is later than 1/2/2010 false
 
+Best match 2 3 4 java.awt.Color[r=0,g=0,b=255]
+Best match 4 3 3 java.awt.Color[r=255,g=0,b=0]
+Best match 3 8 4 java.awt.Color[r=0,g=255,b=0]
+Best match 4 3 4 java.awt.Color[r=255,g=0,b=255]
+Best match 2 4 4 java.awt.Color[r=0,g=255,b=255]
+Best match 8 8 4 java.awt.Color[r=255,g=255,b=0]
+Best match 4 4 4 java.awt.Color[r=128,g=128,b=128]
 
-
-
-
-    }
-    }
-
-
-
+Find Best fit 2 3 6 is 3
+Find Best fit 4 3 6 is 1
+Find Best fit 3 4 6 is 2
+Find Best fit 2 3 1 is 0
+Find Best fit 6 3 4 is 2
+Find Best fit 3 6 4 is 1
+Find Best fit 2 2 2 is 1
+*/
 
 
